@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEPE IN HOOD • $PEPEHOOD | Robinhood Meme Token</title>
+  <link rel="icon" type="image/png" href="assets/coin.png">
+  <!-- Fonts for cloned game -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Fredoka:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Cloned Robin Hood Game styles -->
+  <link rel="stylesheet" href="game/css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap');
+    
+    :root {
+      --green: #22c55e;
+      --lime: #a3e635;
+      --gold: #fcd34d;
+      --dark: #0a1209;
+    }
+    
+    body {
+      background: #0a1209;
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    .magical-bg {
+      background: radial-gradient(circle at 30% 20%, rgba(163, 230, 53, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 60%);
+    }
+    
+    .neon-green {
+      text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e, 0 0 40px #a3e635;
+    }
+    
+    .neon-gold {
+      text-shadow: 0 0 8px #fcd34d, 0 0 16px #fcd34d;
+    }
+    
+    .glass {
+      background: rgba(15, 23, 15, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(163, 230, 53, 0.2);
+    }
+    
+    .section-header {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-header:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(to right, #22c55e, #a3e635);
+      border-radius: 3px;
+      box-shadow: 0 0 12px #a3e635;
+    }
+    
+    .pepe-glow {
+      filter: drop-shadow(0 0 15px rgba(163, 230, 53, 0.5));
+      transition: transform 0.4s cubic-bezier(0.23, 1.0, 0.32, 1), filter 0.4s;
+    }
+    
+    .pepe-glow:hover {
+      transform: scale(1.03) rotate(1deg);
+      filter: drop-shadow(0 0 28px rgba(163, 230, 53, 0.75));
+    }
+    
+    .magic-button {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.23, 1.0, 0.32, 1);
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+    }
+    
+    .magic-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(163, 230, 53, 0.6);
+    }
+    
+    .magic-button:after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+      );
+      transition: 0.6s;
+    }
+    
+    .magic-button:hover:after {
+      left: 250%;
+    }
+    
+    .gallery-img {
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                  box-shadow 0.4s ease;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+    
+    .gallery-img:hover {
+      transform: scale(1.015);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+    }
+    
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(163, 230, 53, 0.15);
+      background: #111a10;
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(to right, #a3e635, #22c55e);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .stat-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+    
+    .meme-text {
+      font-family: "Press Start 2P", system-ui;
+      letter-spacing: 1px;
+    }
+    
+    .magical-particle {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      background: #a3e635;
+      box-shadow: 0 0 6px #a3e635;
+      animation: floatParticle 4s ease-in-out infinite;
+    }
+    
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+      50% { transform: translateY(-40px) rotate(180deg); opacity: 0.3; }
+    }
+    
+    .arrow {
+      animation: shoot 1.6s ease-in-out infinite;
+    }
+    
+    .token-card {
+      background: linear-gradient(145deg, #111a10, #0a1209);
+      border: 1px solid rgba(163, 230, 53, 0.25);
+    }
+    
+    .modal {
+      animation: fadeInScale 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    .forest-bg {
+      background: #0a1209;
+    }
+    
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.85) contrast(1.05);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,18,9,0.55) 10%, rgba(10,18,9,0.35) 40%, rgba(10,18,9,0.75) 85%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .glow-text {
+      text-shadow: 0 0 20px rgba(163, 230, 53, 0.6);
+    }
+    
+    .feather {
+      animation: featherFloat 3.5s ease-in-out infinite;
+    }
+
+    /* New sections styles */
+    #archery-canvas {
+      box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.6);
+      image-rendering: crisp-edges;
+    }
+    #meme-canvas {
+      box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.6);
+    }
+    .base-btn {
+      transition: all 0.2s ease;
+    }
+    .base-btn.active {
+      border-color: #a3e635;
+      box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Cursor click effect styles - magical green sparkles */
+    .click-ring {
+      position: fixed;
+      border: 2px solid #a3e635;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 99999;
+      animation: clickRingExpand 520ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      box-shadow: 0 0 8px rgba(163, 230, 53, 0.6);
+    }
+    .click-particle {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      background: #a3e635;
+      box-shadow: 0 0 5px #a3e635, 0 0 9px #fcd34d;
+      z-index: 99999;
+      animation: clickParticlePop 620ms ease-out forwards;
+    }
+    .click-particle.gold {
+      background: #fcd34d;
+      box-shadow: 0 0 5px #fcd34d;
+    }
+    @keyframes clickRingExpand {
+      to { transform: scale(2.8); opacity: 0; }
+    }
+    @keyframes clickParticlePop {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0.1); opacity: 0; }
+    }
+
+    /* === Embedded Robinhood Game overrides (fit inside section, blend with site) === */
+    #archery #game-wrapper {
+      overflow: hidden;
+      overscroll-behavior: contain;   /* trap scroll so main page doesn't move */
+    }
+
+    #archery #stage {
+      width: 820px;
+      max-width: 100%;
+      height: 462px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.6);
+      background: #142619;
+      overscroll-behavior: contain;
+    }
+    #archery #game-canvas {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      touch-action: none;
+    }
+    /* Make overlays fit the game box and not full page */
+    #archery .overlay {
+      padding: 12px;
+    }
+    #archery .panel {
+      width: min(620px, 92%);
+      max-height: 94%;
+      overflow-y: auto;               /* let tall panels (how-to, shop, etc.) scroll *inside* the game box */
+      overscroll-behavior: contain;   /* don't let panel scroll leak to main page */
+      padding: 18px 20px;
+      font-size: 14px;
+    }
+    #archery .game-title { font-size: 28px; }
+    #archery .subtitle { font-size: 13px; }
+    #archery .btn { padding: 8px 18px; font-size: 13px; }
+    /* Hide global cursor effects inside game area */
+    #archery { position: relative; }
+
+    /* Additional game embed polish */
+    #archery #stage { background: #142619; }
+    #archery #game-canvas { box-shadow: 0 0 0 2px #0a1f14, 0 8px 28px rgba(0,0,0,0.55); }
+    #archery .overlay { background: rgba(8,14,10,0.78); }
+    #archery .panel { box-shadow: 0 0 0 2px #1c4a32, 0 0 0 5px #0a1f14; }
+    #archery .overlay.hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 glass border-b border-green-900/30">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-x-3">
+          <div class="relative">
+            <img src="assets/coin.png" alt="PEPEHOOD Logo" class="w-12 h-12 rounded-full ring-2 ring-lime-400/50 pepe-glow">
+            <div class="absolute -inset-1 bg-lime-400/10 rounded-full blur-md -z-10"></div>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-x-1.5">
+              <span class="text-2xl font-black tracking-tighter">PEPE IN HOOD</span>
+              <span class="text-lime-400 text-sm font-mono font-bold">$PEPEHOOD</span>
+            </div>
+            <div class="text-[10px] text-lime-500/70 -mt-1">ROBINHOOD • MEMECOIN</div>
+          </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+          <a href="#about" class="nav-link hover:text-lime-400">THE LEGEND</a>
+          <a href="#archery" class="nav-link hover:text-lime-400">HOOD GAME</a>
+          <a href="#gallery" class="nav-link hover:text-lime-400">GALLERY</a>
+          <a href="#memeforge" class="nav-link hover:text-lime-400">MEME FORGE</a>
+          <a href="#tokenomics" class="nav-link hover:text-lime-400">TOKENOMICS</a>
+          <a href="#howtobuy" class="nav-link hover:text-lime-400">HOW TO BUY</a>
+        </div>
+
+        <!-- Socials + CA -->
+        <div class="flex items-center gap-x-3">
+          <a href="https://x.com/pepehood_evm" target="_blank" 
+             class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/5 transition-colors text-lime-300 hover:text-white">
+            <i class="fab fa-x-twitter text-xl"></i>
+          </a>
+          <a href="https://t.me/pepehood_evm" target="_blank" 
+             class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/5 transition-colors text-lime-300 hover:text-white">
+            <i class="fab fa-telegram-plane text-xl"></i>
+          </a>
+          
+          <!-- CA Pill -->
+          <button onclick="copyCA()" 
+                  class="hidden sm:flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-zinc-950 hover:bg-black border border-lime-900/50 hover:border-lime-400/40 text-xs font-mono transition-all group">
+            <span class="text-lime-400/90 group-hover:text-lime-400">CA:</span> 
+            <span id="ca-text" class="font-bold tracking-widest text-lime-300">0xb5b6dc8daf6a63334386f87d98348966036d851d</span>
+            <i class="fa-solid fa-copy text-xs ml-0.5 text-lime-500 group-hover:text-lime-300"></i>
+          </button>
+
+          <!-- Mobile menu -->
+          <button onclick="toggleMobileNav()" class="md:hidden w-10 h-10 flex items-center justify-center text-lime-400">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="hidden md:hidden border-t border-green-900/30 glass px-6 py-4">
+      <div class="flex flex-col gap-y-1 text-sm">
+        <a href="#about" class="py-2 hover:text-lime-400">THE LEGEND</a>
+        <a href="#archery" class="py-2 hover:text-lime-400">HOOD GAME</a>
+        <a href="#gallery" class="py-2 hover:text-lime-400">GALLERY</a>
+        <a href="#memeforge" class="py-2 hover:text-lime-400">MEME FORGE</a>
+        <a href="#tokenomics" class="py-2 hover:text-lime-400">TOKENOMICS</a>
+        <a href="#howtobuy" class="py-2 hover:text-lime-400">HOW TO BUY</a>
+        <button onclick="copyCA(); toggleMobileNav()" class="mt-2 flex w-full justify-center py-2.5 rounded-xl bg-lime-950/70 text-lime-400 font-mono text-sm">COPY CONTRACT 0xb5b6dc8daf6a63334386f87d98348966036d851d</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative min-h-[100dvh] flex items-center forest-bg border-b border-lime-900/20 overflow-hidden">
+    <!-- Grok Imagine Video Background -->
+    <video id="hero-video" class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/hero-pepehood.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <!-- Gradient overlay for text readability -->
+    <div class="hero-overlay"></div>
+
+    <!-- Magical floating particles overlay -->
+    <div id="hero-particles" class="absolute inset-0 pointer-events-none" style="z-index: 2;"></div>
+    
+    <div class="max-w-5xl mx-auto px-6 pt-8 pb-16 relative z-10">
+      <div class="max-w-3xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full border border-lime-400/30 bg-lime-950/40 mb-6 text-sm">
+          <div class="w-2 h-2 bg-lime-400 rounded-full animate-pulse"></div>
+          <span class="font-medium tracking-widest text-lime-300">ROBINHOOD MEME SEASON</span>
+        </div>
+
+        <h1 class="text-7xl md:text-8xl font-black tracking-[-4.5px] leading-[.9]">
+          PEPE<br>IN HOOD
+        </h1>
+        
+        <div class="flex items-center gap-x-3 mt-3">
+          <div class="text-4xl md:text-5xl font-black text-lime-400 tracking-[-1px]">$PEPEHOOD</div>
+          <div class="px-3 py-1 text-xs rounded-full border border-lime-400/50 text-lime-400 self-start mt-2 font-mono">ROBINHOOD</div>
+        </div>
+
+        <p class="mt-5 max-w-lg text-2xl text-lime-100/90 tracking-tight">
+          The legendary frog who steals from the whales<br>and gives back to the degens.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mt-9">
+          <a href="https://app.uniswap.org/swap?chain=robinhood&inputCurrency=NATIVE&outputCurrency=0xb5b6dc8daf6a63334386f87d98348966036d851d" target="_blank" 
+             class="magic-button inline-flex items-center justify-center gap-x-3 px-9 py-4 rounded-2xl bg-lime-400 hover:bg-lime-300 active:bg-white text-[#0a1209] font-extrabold text-lg shadow-xl shadow-lime-400/30">
+            <i class="fa-solid fa-rocket"></i>
+            <span>BUY $PEPEHOOD</span>
+          </a>
+          
+          <button onclick="copyCA()" 
+                  class="magic-button inline-flex items-center justify-center gap-x-3 px-7 py-4 rounded-2xl border-2 border-lime-400/70 hover:bg-lime-950/50 hover:border-lime-400 text-white font-bold text-lg transition-all">
+            <i class="fa-solid fa-copy"></i>
+            <span>COPY CA</span>
+          </button>
+        </div>
+
+        <div class="mt-8 flex items-center gap-x-5 text-sm">
+          <div class="flex -space-x-3">
+            <div class="w-7 h-7 rounded-full ring-2 ring-[#0a1209] overflow-hidden"><img src="assets/avatar/1.jpg" class="w-full h-full object-cover"></div>
+            <div class="w-7 h-7 rounded-full ring-2 ring-[#0a1209] overflow-hidden bg-lime-800"><img src="assets/avatar/2.jpg" class="w-full h-full object-cover"></div>
+            <div class="w-7 h-7 rounded-full ring-2 ring-[#0a1209] overflow-hidden bg-lime-1600"><img src="assets/avatar/3.jpg" class="w-full h-full object-cover"></div>
+          </div>
+          <div class="text-lime-400/70">
+            <span class="font-semibold text-lime-300">6,420+</span> degens already in the hood
+          </div>
+        </div>
+
+        <!-- Contract row -->
+        <div class="mt-7 inline-flex items-center gap-x-2 text-xs px-3.5 py-2 rounded-2xl bg-black/60 border border-lime-900/40 font-mono">
+          <span class="text-lime-400/70">CONTRACT</span> 
+          <span class="font-bold text-lime-400 tracking-[3px]">0xb5b6dc8daf6a63334386f87d98348966036d851d</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-xs tracking-[3px] text-lime-400/60" style="z-index: 3;">
+      <div>SCROLL TO BEGIN THE HEIST</div>
+      <i class="fa-solid fa-chevron-down mt-1 animate-bounce"></i>
+    </div>
+  </header>
+
+  <!-- TRUST BAR / SOCIAL PROOF -->
+  <div class="border-b border-lime-900/20 py-4 bg-black/30">
+    <div class="max-w-5xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs uppercase tracking-widest text-lime-400/60 font-medium">
+      <div>POWERED BY ROBINHOOD</div>
+      <div class="hidden sm:block w-px h-3 bg-lime-900/70"></div>
+      <div>COMMUNITY DRIVEN</div>
+      <div class="hidden sm:block w-px h-3 bg-lime-900/70"></div>
+      <div>ROBIN HOOD VIBES</div>
+      <div class="hidden sm:block w-px h-3 bg-lime-900/70"></div>
+      <div>NO TEAM TOKENS</div>
+      <div class="hidden sm:block w-px h-3 bg-lime-900/70"></div>
+      <div>BASED • HOODED • LEGENDARY</div>
+    </div>
+  </div>
+
+  <!-- ABOUT / THE LEGEND -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-20">
+    <div class="grid md:grid-cols-12 gap-12 items-center">
+      <div class="md:col-span-7">
+        <div class="uppercase tracking-[3px] text-lime-400 text-sm font-semibold mb-3">THE ORIGIN STORY</div>
+        <h2 class="section-header text-5xl md:text-6xl font-black tracking-tighter leading-none mb-6">THE FROG<br>WHO TOOK<br>THE HOOD.</h2>
+        
+        <div class="space-y-5 text-[15px] leading-relaxed text-gray-300">
+          <p>
+            In the darkest night of the meme wars, when whales ruled the charts and degens were left with nothing but rugs, 
+            a single hooded frog appeared from the enchanted forest.
+          </p>
+          <p>
+            <strong class="text-lime-300">Pepe in Hood</strong> — the mythical Robin Hood of the Robinhood chain. 
+            With his legendary bow and an endless quiver of green arrows, he robs from the fat whales dumping on the people 
+            and delivers pure gains back to the community.
+          </p>
+          <p>
+            Inspired by the legendary moment when the original $PEPE touched Robinhood, Pepe in Hood brings that same 
+            spirit to the fastest chain: <span class="font-semibold text-white">wealth redistribution through memes</span>.
+          </p>
+          <p class="text-lime-300/90 font-medium">
+            Hood up. Arrows loaded. The people will eat.
+          </p>
+        </div>
+      </div>
+
+      <div class="md:col-span-5">
+        <div class="relative rounded-3xl overflow-hidden border border-lime-900/30 shadow-2xl">
+          <div
+                class="elementor-element elementor-element-4c4002e e-con-full e-flex e-con e-child"
+                data-id="4c4002e"
+                data-element_type="container"
+              >
+                <div
+                  class="elementor-element elementor-element-d5f98aa hue-overlay-image elementor-invisible elementor-widget elementor-widget-image"
+                  data-id="d5f98aa"
+                  data-element_type="widget"
+                  data-settings='{"sticky":"top","sticky_parent":"yes","_animation":"bounceIn","sticky_on":["desktop","tablet","mobile"],"sticky_offset":0,"sticky_effects_offset":0}'
+                  data-widget_type="image.default"
+                >
+                  <div class="elementor-widget-container">
+                    <!-- Tweet Container with custom styling -->
+                    <div
+                      class="tweet-container"
+                      style="max-width: 550px; margin: 0 auto"
+                    >
+                      <!-- Primary Tweet -->
+                      <blockquote class="twitter-tweet" data-dnt="true">
+                        <p lang="en" dir="ltr">
+                          Vlad Tenev is Hood Pepe today.
+                        </p>
+                        &mdash; Vlad Tenev (@vladtenev)
+                        <a
+                          href="https://twitter.com/vladtenev/status/1856807363334008948"
+                          >July 2, 2026</a
+                        >
+                      </blockquote>
+                      <!-- Twitter Widget Script -->
+                      <script
+                        async
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      ></script>
+                    </div>
+
+                    <!-- Optional: Add custom styling -->
+                    <style>
+                      .tweet-container {
+                        background: #fff;
+                        border-radius: 12px;
+                        padding: 15px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                      }
+                      .twitter-tweet {
+                        margin: 0 auto !important;
+                      }
+                    </style>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS / MAGICAL NUMBERS -->
+  <section class="bg-black/40 border-y border-lime-900/20 py-8">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="stat-card glass p-5 rounded-2xl">
+          <div class="text-3xl font-black text-lime-400">1,000,000,000</div>
+          <div class="text-xs uppercase tracking-widest mt-1.5 text-lime-400/60">TOTAL SUPPLY</div>
+        </div>
+        <div class="stat-card glass p-5 rounded-2xl">
+          <div class="text-3xl font-black text-lime-400">100%</div>
+          <div class="text-xs uppercase tracking-widest mt-1.5 text-lime-400/60">LIQUIDITY POOL BURNED</div>
+        </div>
+        <div class="stat-card glass p-5 rounded-2xl">
+          <div class="text-3xl font-black text-lime-400">0</div>
+          <div class="text-xs uppercase tracking-widest mt-1.5 text-lime-400/60">TEAM TOKENS • DEV WALLETS</div>
+        </div>
+        <div class="stat-card glass p-5 rounded-2xl">
+          <div class="text-3xl font-black text-lime-400">∞</div>
+          <div class="text-xs uppercase tracking-widest mt-1.5 text-lime-400/60">MEMETIC POWER</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL ROBINHOOD GAME (cloned from robin-hood-game-cs.vercel.app) -->
+  <section id="archery" class="max-w-6xl mx-auto px-6 py-16 border-t border-lime-900/20">
+    <div class="text-center mb-4">
+      <div class="uppercase tracking-[4px] text-lime-400 text-xs">FULL EXPERIENCE</div>
+      <h2 class="section-header text-6xl font-black tracking-[-2px] mt-1">ROBINHOOD GAME</h2>
+      <p class="mt-2 text-lime-300/80 max-w-lg mx-auto">Hold the gate. Loose your arrows. Rob the rich. WASD move • Mouse aim &amp; hold to draw • Waves, upgrades &amp; power-ups.</p>
+    </div>
+
+    <div id="game-wrapper" class="glass rounded-3xl p-3 md:p-4 max-w-[860px] mx-auto" style="background:rgba(10,18,9,0.65); border-color: rgba(163,230,53,0.15);">
+      <!-- Cloned full game UI + canvas -->
+      <div id="stage">
+        <canvas id="game-canvas" role="img"
+          aria-label="Robinhood - a Robin Hood archery defense game. Aim with the mouse or touch, hold to draw the bow, release to fire. Requires pointer aiming.">Robinhood: hold the gate and loose arrows at oncoming villains. This canvas game needs mouse or touch aiming.</canvas>
+
+        <!-- On-screen controls for touch devices (hidden on mouse/desktop via CSS) -->
+        <div id="touch-controls" class="touch-only" aria-hidden="true">
+          <button id="tc-left" type="button" aria-label="Move left"></button>
+          <div id="tc-vert">
+            <button id="tc-jump" type="button" aria-label="Move up"></button>
+            <button id="tc-down" type="button" aria-label="Move down"></button>
+          </div>
+          <button id="tc-right" type="button" aria-label="Move right"></button>
+        </div>
+
+        <!-- In-game HUD (crisp DOM overlay over the pixel canvas) -->
+        <div id="hud" class="hidden">
+          <div id="hud-top">
+            <div id="hud-left">
+              <div id="hud-hearts"></div>
+              <div id="hud-gold"></div>
+            </div>
+            <div id="hud-right">
+              <span id="hud-wave"></span>
+              <span id="hud-combo"></span>
+            </div>
+          </div>
+          <div id="hud-items"></div>
+        </div>
+
+        <!-- WALLET CONNECT (landing gate, optional) -->
+        <section id="screen-wallet" class="overlay" role="dialog" aria-modal="true" aria-label="Connect your wallet">
+          <div class="panel title-panel">
+            <h1 class="game-title"><span class="t1">Robinhood</span></h1>
+            <div class="title-rule"></div>
+            <p class="subtitle">Connect a Robinhood wallet — MetaMask and more.</p>
+            <div id="wallet-options" class="wallet-options"></div>
+            <div id="wallet-note" class="wallet-note" aria-live="polite"></div>
+            <div class="wallet-chain-badge">CA: 0xb5b6dc8daf6a63334386f87d98348966036d851d</div>
+            <p class="disclaimer"><span class="disc-ico"></span><b>Experimental build.</b> Connect Metamask, or another Robinhood wallet. Refreshing the page resets your current run. Not affiliated · not financial advice.</p>
+          </div>
+        </section>
+
+        <!-- MENU -->
+        <section id="screen-menu" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Robinhood main menu">
+          <div class="panel title-panel">
+            <button id="wallet-chip" class="wallet-chip" type="button" title="Wallet"></button>
+            <h1 class="game-title"><span class="t1">Robinhood</span></h1>
+            <div class="title-rule"></div>
+            <p class="subtitle">Hold the gate. Loose your arrows. Rob the rich.</p>
+            <div class="wallet-chain-badge">$HOOD · Robinhood</div>
+            <div class="menu-buttons">
+              <button id="btn-play" class="btn btn-primary">Play</button>
+              <button id="btn-multiplayer" class="btn btn-soon" type="button" aria-disabled="true" title="Multiplayer is coming soon">Multiplayer<span class="soon-badge">Soon</span></button>
+              <button id="btn-board-menu" class="btn">Leaderboard</button>
+              <button id="btn-how" class="btn">How to play</button>
+            </div>
+            <button id="mute-ind" class="mute-ind" title="Mute (M)" aria-label="Toggle sound"></button>
+            <p class="disclaimer"><span class="disc-ico"></span>Experimental · Robinhood wallet connect · refreshing resets your run · not financial advice.</p>
+          </div>
+        </section>
+
+        <!-- CHARACTER SELECT -->
+        <section id="screen-chars" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Choose your outlaw">
+          <div class="panel">
+            <h2>Choose your outlaw</h2>
+            <div id="hero-grid" class="hero-grid"></div>
+            <button id="btn-chars-back" class="btn btn-ghost">Back</button>
+          </div>
+        </section>
+
+        <!-- UNLOCK CHARACTER (one-time purchase) -->
+        <section id="screen-unlock" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Unlock character">
+          <div class="panel">
+            <h2>Unlock Champion</h2>
+            <p class="subtitle">A one-time purchase — once unlocked, this hero is yours forever on this wallet.</p>
+            <div class="entry-fee"><span id="unlock-price-amt">.</span> <span id="unlock-price-unit" class="entry-fee-unit"></span></div>
+            <div id="unlock-hero" class="entry-hero"></div>
+            <div id="unlock-balance" class="final-rank"></div>
+            <button id="btn-unlock" class="btn btn-primary">Unlock</button>
+            <div id="unlock-status" class="submit-status" aria-live="polite"></div>
+            <button id="btn-unlock-back" class="btn btn-ghost">Back</button>
+          </div>
+        </section>
+
+        <!-- ENTRY (pay-to-play gate) -->
+        <section id="screen-entry" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Pay to enter">
+          <div class="panel">
+            <h2>Enter Sherwood</h2>
+            <p class="subtitle">Pay the entry fee to take the field — survive deep enough and you collect back more than you paid.</p>
+            <div class="entry-fee"><span id="entry-fee-ico"></span><span id="entry-fee-amt">.</span> <span class="entry-fee-unit">HOOD</span></div>
+            <div id="entry-hero" class="entry-hero"></div>
+            <div id="entry-balance" class="final-rank"></div>
+            <button id="btn-pay-play" class="btn btn-primary">Pay &amp; Play</button>
+            <div id="entry-status" class="submit-status" aria-live="polite"></div>
+            <button id="btn-entry-back" class="btn btn-ghost">Back</button>
+          </div>
+        </section>
+
+        <!-- HOW TO PLAY -->
+        <section id="screen-how" class="overlay hidden" role="dialog" aria-modal="true" aria-label="How to play">
+          <div class="panel">
+            <h2>How to play</h2>
+            <ul class="how-list">
+              <li><b>Roam</b> the valley with <b>WASD</b> / arrows (or on-screen pad). The camera follows you.</li>
+              <li><b>Aim</b> with the mouse/touch. <b>Hold</b> to draw — longer draw = farther &amp; harder-hitting; a <b>full draw</b> adds bonus damage.</li>
+              <li><b>Release</b> to loose the arrow. Intercept villains before they reach your gate at the west edge.</li>
+              <li>Villains close in from all sides. Drop them for <b>gold</b>; chain kills for a <b>combo</b> multiplier.</li>
+              <li>Clear a <b>wave</b> to open the <b>Market</b>: permanent <b>upgrades</b> (kept all run) + one-time <b>special power-ups</b> (keys 1–6). Grab <b>Keen Eye</b> for a dotted aim line.</li>
+              <li>Every foe at the gate — or rock that hits you — costs a <b>heart</b>. Waves are endless and scale up fast.</li>
+              <li><b>P</b> pause · <b>M</b> mute</li>
+            </ul>
+            <button id="btn-how-back" class="btn btn-ghost">Back</button>
+          </div>
+        </section>
+
+        <!-- LEADERBOARD -->
+        <section id="screen-board" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Leaderboard">
+          <div class="panel">
+            <h2 id="board-title">Leaderboard <small id="board-scope"></small></h2>
+            <ol id="board-list" class="board-list" aria-live="polite"></ol>
+            <button id="btn-board-back" class="btn btn-ghost">Back</button>
+          </div>
+        </section>
+
+        <!-- SHOP (between waves) -->
+        <section id="screen-shop" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Between-wave market">
+          <div class="panel shop-panel">
+            <div class="shop-topbar">
+              <div class="shop-title">
+                <h2>Sherwood Market</h2>
+                <span id="shop-wave" class="shop-sub"></span>
+              </div>
+              <div class="shop-gold"><span id="shop-gold-ico"></span><span id="shop-gold">0</span><span class="shop-gold-label">gold</span></div>
+            </div>
+            <div class="shop-body">
+              <h3 class="shop-head">Upgrades <small>permanent &middot; kept this run</small></h3>
+              <div id="shop-upgrades" class="shop-grid"></div>
+              <h3 class="shop-head">Special Power‑Ups <small>one‑time &middot; use with keys 1–6</small></h3>
+              <div id="shop-consumables" class="shop-grid"></div>
+            </div>
+            <div class="shop-footer">
+              <button id="btn-next-wave" class="btn btn-primary">Next Wave</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- GAME OVER -->
+        <section id="screen-over" class="overlay hidden" role="dialog" aria-modal="true" aria-label="Game over">
+          <div class="panel">
+            <h2>The gate has fallen</h2>
+            <div class="final-score"><span id="final-score-ico"></span><span id="final-score">0</span></div>
+            <div id="final-meta" class="final-meta"></div>
+            <div id="final-rank" class="final-rank"></div>
+            <div id="reward-row" class="reward-row hidden">
+              <button id="btn-collect" class="btn btn-primary"></button>
+              <div id="collect-status" class="submit-status" aria-live="polite"></div>
+            </div>
+            <div class="submit-row">
+              <input id="name-input" maxlength="14" placeholder="Your outlaw name" autocomplete="off">
+              <button id="btn-submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div id="submit-status" class="submit-status" aria-live="polite"></div>
+            <div class="menu-buttons">
+              <button id="btn-retry" class="btn">Play again</button>
+              <button id="btn-over-menu" class="btn btn-ghost">Main menu</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="text-center mt-3 text-[10px] text-lime-400/50 tracking-widest">WASD/ARROWS MOVE • MOUSE AIM &amp; HOLD TO DRAW • RELEASE TO SHOOT • P PAUSE • M MUTE • Z ZOOM</div>
+  </section>
+
+  <!-- MEME FORGE / MEME IMAGE CREATION -->
+  <section id="memeforge" class="max-w-6xl mx-auto px-6 py-20 border-t border-lime-900/20 bg-black/30">
+    <div class="text-center mb-8">
+      <div class="uppercase tracking-[4px] text-lime-400 text-xs">CREATE &amp; SHARE</div>
+      <h2 class="section-header text-6xl font-black tracking-[-2px] mt-1">MEME FORGE</h2>
+      <p class="mt-2 text-lime-300/80">Forge legendary Pepe in Hood memes in seconds. Download and spread the word.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-[980px] mx-auto">
+      <!-- Preview Canvas -->
+      <div class="glass rounded-3xl p-6">
+        <div class="flex justify-between items-center mb-3">
+          <div class="text-sm font-semibold">PREVIEW</div>
+          <div class="text-[10px] px-2 py-px bg-lime-900/40 text-lime-300 rounded">3:2 RATIO</div>
+        </div>
+        <canvas id="meme-canvas" width="720" height="480" class="w-full rounded-2xl border border-lime-900/30 bg-[#111a10]"></canvas>
+      </div>
+
+      <!-- Controls -->
+      <div class="glass rounded-3xl p-6 flex flex-col">
+        <div class="mb-4">
+          <div class="text-xs uppercase tracking-widest text-lime-400 mb-2">BASE IMAGE</div>
+          <div class="flex flex-wrap gap-2" id="meme-base-select">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="space-y-4 flex-1">
+          <div>
+            <label class="text-xs uppercase tracking-widest text-lime-400">TOP TEXT</label>
+            <input id="meme-top" type="text" value="HOOD UP" 
+                   class="w-full mt-1 px-4 py-2.5 bg-black/60 border border-lime-900/50 rounded-xl text-white focus:outline-none focus:border-lime-400" oninput="updateMemeCanvas()">
+          </div>
+
+          <div>
+            <label class="text-xs uppercase tracking-widest text-lime-400">BOTTOM TEXT</label>
+            <input id="meme-bottom" type="text" value="ARROWS FLY • WHALES DIE" 
+                   class="w-full mt-1 px-4 py-2.5 bg-black/60 border border-lime-900/50 rounded-xl text-white focus:outline-none focus:border-lime-400" oninput="updateMemeCanvas()">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="text-xs uppercase tracking-widest text-lime-400">TEXT COLOR</label>
+              <div class="flex gap-2 mt-1">
+                <button onclick="setMemeColor('#ffffff')" class="w-7 h-7 rounded-full border border-white/30" style="background:#fff"></button>
+                <button onclick="setMemeColor('#a3e635')" class="w-7 h-7 rounded-full border border-white/30" style="background:#a3e635"></button>
+                <button onclick="setMemeColor('#fcd34d')" class="w-7 h-7 rounded-full border border-white/30" style="background:#fcd34d"></button>
+                <button onclick="setMemeColor('#22c55e')" class="w-7 h-7 rounded-full border border-white/30" style="background:#22c55e"></button>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs uppercase tracking-widest text-lime-400">FONT SIZE <span id="font-size-val">46</span></label>
+              <input type="range" id="meme-size" min="24" max="72" step="2" value="46" class="w-full accent-lime-400 mt-2" oninput="updateMemeCanvas()">
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-auto pt-5 flex flex-wrap gap-3">
+          <button onclick="randomMemeText()" class="flex-1 px-4 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-lime-900/60 text-sm font-medium">
+            <i class="fa-solid fa-dice mr-2"></i> RANDOM MEME
+          </button>
+          <button onclick="downloadMeme()" class="flex-1 px-4 py-2.5 rounded-xl magic-button bg-lime-400 hover:bg-lime-300 text-black font-extrabold text-sm">
+            <i class="fa-solid fa-download mr-2"></i> DOWNLOAD PNG
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="uppercase tracking-[4px] text-xs text-lime-400 mb-1">THE ADVENTURES</div>
+        <h2 class="section-header text-6xl font-black tracking-[-2.5px]">THE HOOD GALLERY</h2>
+      </div>
+      <div class="hidden md:block text-xs text-lime-400/50">12 LEGENDARY MOMENTS • ALL 3:2</div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <!-- Populated by JS -->
+    </div>
+    
+    <div class="mt-6 text-center">
+      <div class="text-[10px] tracking-[2.5px] text-lime-400/40">ALL 12 MOMENTS • CONSISTENT 3:2 RATIO • MAGICAL REALM</div>
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section id="tokenomics" class="max-w-5xl mx-auto px-6 py-16 border-t border-lime-900/20">
+    <div class="text-center mb-12">
+      <div class="text-lime-400 uppercase text-xs tracking-[4px]">THE ROBIN HOOD ECONOMY</div>
+      <h2 class="text-6xl font-black tracking-tighter mt-1">TOKENOMICS</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="token-card p-8 rounded-3xl">
+        <div class="text-lime-400 mb-4"><i class="fa-solid fa-coins text-3xl"></i></div>
+        <div class="font-black text-4xl">1B</div>
+        <div class="mt-1 font-semibold tracking-tight">Total Supply</div>
+        <div class="text-xs mt-4 leading-relaxed text-gray-400">All tokens are fairly launched. No hidden allocations. Pure community power.</div>
+      </div>
+      
+      <div class="token-card p-8 rounded-3xl">
+        <div class="text-lime-400 mb-4"><i class="fa-solid fa-fire text-3xl"></i></div>
+        <div class="font-black text-4xl">100%</div>
+        <div class="mt-1 font-semibold tracking-tight">LP Burned + Renounced</div>
+        <div class="text-xs mt-4 leading-relaxed text-gray-400">The cauldron of liquidity has been burned forever. Contract is free from control. True decentralization.</div>
+      </div>
+      
+      <div class="token-card p-8 rounded-3xl">
+        <div class="text-lime-400 mb-4"><i class="fa-solid fa-gem text-3xl"></i></div>
+        <div class="font-black text-4xl">0 / 0</div>
+        <div class="mt-1 font-semibold tracking-tight">Taxes • Team Wallets</div>
+        <div class="text-xs mt-4 leading-relaxed text-gray-400">Zero tax forever. No dev wallet. Pepe takes only what the people are willing to give — through memes and volume.</div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-xs text-lime-400/60 tracking-widest">THE MORE YOU HOLD, THE MORE THE HOOD GROWS</div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section id="howtobuy" class="bg-black/50 border-t border-b border-lime-900/20 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <div class="uppercase tracking-[4px] text-lime-400 text-sm">JOIN THE HEIST</div>
+        <h2 class="text-6xl font-black tracking-[-2px]">HOW TO BUY</h2>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="glass p-7 rounded-3xl group">
+          <div class="font-mono text-xs text-lime-400 mb-2">STEP 01</div>
+          <div class="font-bold text-xl mb-3">Get a Metamask Wallet</div>
+          <p class="text-sm text-gray-400">Install Metamask. Create a new wallet and secure your seed phrase.</p>
+          <a target="_blank" href="https://metamask.io" class="mt-6 text-lime-400 text-xs flex items-center gap-x-2 group-hover:gap-x-3 transition-all">GET METAMASK <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="glass p-7 rounded-3xl group">
+          <div class="font-mono text-xs text-lime-400 mb-2">STEP 02</div>
+          <div class="font-bold text-xl mb-3">Fund with ETH</div>
+          <p class="text-sm text-gray-400">Buy ETH on any exchange and send it to your wallet. Make sure you have enough for fees and the bag you want.</p>
+        </div>
+        
+        <div class="glass p-7 rounded-3xl group">
+          <div class="font-mono text-xs text-lime-400 mb-2">STEP 03</div>
+          <div class="font-bold text-xl mb-3">Go to a DEX</div>
+          <p class="text-sm text-gray-400">Use uniswap. Paste the contract address and swap your ETH for $PEPEHOOD. Go to Chart.</p>
+          <a target="_blank" href="https://dexscreener.com/robinhood/0xb5b6dc8daf6a63334386f87d98348966036d851d" class="mt-4 text-xs px-3 py-1 bg-lime-950 rounded-lg text-lime-400 inline-block font-mono">DEXSCREENER</a>
+        </div>
+        
+        <div class="glass p-7 rounded-3xl group border-lime-400/40 border">
+          <div class="font-mono text-xs text-lime-400 mb-2">STEP 04</div>
+          <div class="font-bold text-xl mb-3">Join the Hood</div>
+          <p class="text-sm text-gray-400">Hood up, set your PFP, and tell the timeline. Share memes. Watch the arrows fly. Welcome to the family.</p>
+          
+          <div class="mt-6 flex gap-2">
+            <a href="https://x.com/pepehood_evm" target="_blank" class="flex-1 text-center text-xs font-bold py-2.5 rounded-xl bg-white/5 hover:bg-white/10">X / TWITTER</a>
+            <a href="https://t.me/pepehood_evm" target="_blank" class="flex-1 text-center text-xs font-bold py-2.5 rounded-xl bg-white/5 hover:bg-white/10">TELEGRAM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAGICAL CALL TO ACTION -->
+  <section class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <div class="inline-block px-5 py-1 text-xs tracking-[4px] rounded-full border border-lime-800 text-lime-400 mb-4">THE ARROW HAS BEEN LOADED</div>
+    
+    <h2 class="text-5xl md:text-6xl font-black tracking-[-2px]">Ready to take back<br>what the whales stole?</h2>
+    
+    <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a target="_blank" href="https://app.uniswap.org/swap?chain=robinhood&inputCurrency=NATIVE&outputCurrency=0xb5b6dc8daf6a63334386f87d98348966036d851d"
+              class="magic-button px-10 py-4 text-lg font-extrabold rounded-2xl bg-lime-400 text-black flex items-center gap-x-3 hover:bg-white">
+        <i class="fa-solid fa-wallet"></i>
+        <span>BUY $PEPEHOOD</span>
+    </a>
+      
+      <a href="https://x.com/pepehood_evm" target="_blank"
+         class="px-8 py-4 rounded-2xl text-lime-400 border-2 border-lime-400/60 hover:bg-lime-950/60 flex items-center gap-x-2 font-semibold">
+        <i class="fab fa-x-twitter"></i> 
+        <span>FOLLOW @pepehood_evm</span>
+      </a>
+    </div>
+    
+    <div class="text-[11px] tracking-widest mt-8 text-lime-400/50">PEPE IN HOOD IS A MEME. TRADE RESPONSIBLY. NOT FINANCIAL ADVICE.</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-lime-900/30 py-9 text-xs">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-3 text-lime-400/60">
+      <div>© PEPE IN HOOD 2026 — ALL RIGHTS REVERSED FOR THE PEOPLE</div>
+      <div class="flex items-center gap-x-5">
+        <a href="https://x.com/pepehood_evm" target="_blank" class="hover:text-lime-300">@pepehood_evm</a>
+        <span class="text-lime-900">•</span>
+        <a href="https://t.me/pepehood_evm" target="_blank" class="hover:text-lime-300">@pepehood_evm</a>
+        <span class="text-lime-900">•</span>
+        <span>CA: 0xb5b6dc8daf6a63334386f87d98348966036d851d</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GALLERY LIGHTBOX MODAL -->
+  <div id="modal" onclick="closeModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
+    <div onclick="event.stopImmediatePropagation()" class="relative max-w-5xl w-full">
+      <button onclick="closeModal()" class="absolute -top-3 -right-3 bg-black border border-lime-700 text-white w-9 h-9 rounded-full flex items-center justify-center z-10">
+        <i class="fa-solid fa-times"></i>
+      </button>
+      <img id="modal-image" class="w-full rounded-2xl shadow-2xl border border-lime-800" style="max-height: 82vh; object-fit: contain;">
+      <div id="modal-caption" class="text-center text-lime-400/70 text-sm mt-4 font-mono tracking-wider"></div>
+    </div>
+  </div>
+
+  <script>
+    // Tailwind script
+    function initTailwind() {
+      document.documentElement.style.setProperty('--accent', '#a3e635');
+    }
+
+    // Create floating magical particles for hero
+    function createHeroParticles() {
+      const container = document.getElementById('hero-particles');
+      if (!container) return;
+      
+      for (let i = 0; i < 42; i++) {
+        const p = document.createElement('div');
+        p.className = 'magical-particle';
+        
+        const size = Math.random() * 5 + 1.5;
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
+        
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.top = `${Math.random() * 100}%`;
+        
+        const duration = 3 + Math.random() * 5;
+        p.style.animation = `floatParticle ${duration}s ease-in-out ${Math.random() * -6}s infinite`;
+        
+        // Some bigger sparkle ones
+        if (Math.random() > 0.85) {
+          p.style.background = '#fcd34d';
+          p.style.boxShadow = '0 0 9px #fcd34d';
+          p.style.width = '3.5px';
+          p.style.height = '3.5px';
+        } else if (Math.random() > 0.6) {
+          p.style.background = '#22c55e';
+        }
+        
+        container.appendChild(p);
+        
+        // Clean up some particles after some time for perf
+        setTimeout(() => {
+          if (p && p.parentNode) p.parentNode.removeChild(p);
+        }, 26000);
+      }
+    }
+
+    // Generate gallery images (12 in 3:2)
+    const galleryImages = [
+      { src: "assets/gallery/gallery-01.jpg", caption: "The First Shot — Arrow vs Bear Market" },
+      { src: "assets/gallery/gallery-02.jpg", caption: "Robin Hood's Gift — Coins for the People" },
+      { src: "assets/gallery/gallery-03.jpg", caption: "Arrow Surf — Flying Over Robinhood" },
+      { src: "assets/gallery/gallery-04.jpg", caption: "The Enchanted Treasury" },
+      { src: "assets/gallery/gallery-05.jpg", caption: "Stealing Back From the Whales" },
+      { src: "assets/gallery/gallery-06.jpg", caption: "The Grand Parade of the Hooded Army" },
+      { src: "assets/gallery/gallery-07.jpg", caption: "Bull Breaker — The Arrow That Changed Everything" },
+      { src: "assets/gallery/gallery-08.jpg", caption: "To the Moon, Hood Flapping" },
+      { src: "assets/gallery/gallery-09.jpg", caption: "King of the Enchanted Forest" },
+      { src: "assets/gallery/gallery-10.jpg", caption: "Portal of the Green Candles" },
+      { src: "assets/gallery/gallery-11.jpg", caption: "The Army Rises on the Hill" },
+      { src: "assets/gallery/gallery-12.jpg", caption: "Planting the Flag on Robinhood Tower" }
+    ];
+
+    function renderGallery(limit = 12) {
+      const container = document.querySelector('#gallery .grid');
+      if (!container) return;
+      container.innerHTML = '';
+      
+      const imgs = galleryImages.slice(0, limit);
+      
+      imgs.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = `gallery-card group cursor-pointer relative`;
+        
+        card.innerHTML = `
+          <div class="relative">
+            <img src="${item.src}" alt="${item.caption}" class="gallery-img w-full block">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 opacity-0 group-hover:opacity-70 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform">
+              <div class="text-white text-sm font-semibold tracking-tight drop-shadow-md">${item.caption}</div>
+            </div>
+            <div class="absolute top-3 right-3 px-2 py-px rounded bg-black/60 text-lime-400 text-[10px] font-mono opacity-0 group-hover:opacity-100 transition">3:2</div>
+          </div>
+        `;
+        
+        card.onclick = () => openModal(item.src, item.caption, index);
+        container.appendChild(card);
+      });
+    }
+
+    let currentModalIndex = 0;
+
+    function openModal(src, caption, index) {
+      const modal = document.getElementById('modal');
+      const img = document.getElementById('modal-image');
+      const cap = document.getElementById('modal-caption');
+      
+      img.src = src;
+      cap.innerHTML = caption + ` <span class="text-lime-400/40">• ${index + 1}/12</span>`;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      currentModalIndex = index;
+      
+      // Keyboard support
+      document.onkeydown = function(e) {
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowRight") navigateModal(1);
+        if (e.key === "ArrowLeft") navigateModal(-1);
+      };
+    }
+
+    function navigateModal(dir) {
+      currentModalIndex = (currentModalIndex + dir + galleryImages.length) % galleryImages.length;
+      const next = galleryImages[currentModalIndex];
+      const img = document.getElementById('modal-image');
+      const cap = document.getElementById('modal-caption');
+      img.src = next.src;
+      cap.innerHTML = next.caption + ` <span class="text-lime-400/40">• ${currentModalIndex + 1}/12</span>`;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.onkeydown = null;
+    }
+
+    function showAllGallery() {
+      const grid = document.querySelector('#gallery .grid');
+      if (grid.children.length < 12) {
+        renderGallery(12);
+      } else {
+        // Scroll to top of gallery
+        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Copy contract address
+    function copyCA() {
+      const ca = "0xb5b6dc8daf6a63334386f87d98348966036d851d";
+      navigator.clipboard.writeText(ca).then(() => {
+        const originalText = event.currentTarget ? '' : '';
+        
+        // Toast
+        const toast = document.createElement('div');
+        toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 glass px-6 py-3 rounded-2xl text-sm font-medium flex items-center gap-2 shadow-xl z-[200] border-lime-400/40 border`;
+        toast.innerHTML = `<i class="fa-solid fa-check text-lime-400"></i> <span>Copied contract to clipboard: <strong class="font-mono">${ca}</strong></span>`;
+        
+        document.body.appendChild(toast);
+        
+        // Burst confetti particles
+        createConfettiBurst();
+        
+        setTimeout(() => {
+          toast.style.transition = 'all .3s';
+          toast.style.opacity = '0';
+          setTimeout(() => toast.parentNode.removeChild(toast), 240);
+        }, 1900);
+      }).catch(() => {
+        // fallback
+        prompt("Copy this contract address:", ca);
+      });
+    }
+
+    // Confetti / magical burst
+    function createConfettiBurst(x, y) {
+      const colors = ['#a3e635', '#22c55e', '#fcd34d', '#4ade80'];
+      const container = document.body;
+      const count = 38;
+      
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.style.position = 'fixed';
+        el.style.zIndex = '300';
+        el.style.left = (x || (window.innerWidth / 2)) + 'px';
+        el.style.top = (y || (window.innerHeight * 0.65)) + 'px';
+        el.style.width = '7px';
+        el.style.height = '7px';
+        el.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        el.style.background = colors[Math.floor(Math.random() * colors.length)];
+        el.style.pointerEvents = 'none';
+        el.style.transition = `transform ${700 + Math.random()*420}ms cubic-bezier(.19,1,.2,1), opacity 800ms`;
+        
+        container.appendChild(el);
+        
+        const angle = Math.random() * Math.PI * 2;
+        const vel = 60 + Math.random() * 170;
+        const tx = Math.cos(angle) * vel;
+        const ty = Math.sin(angle) * vel - 90;
+        
+        requestAnimationFrame(() => {
+          el.style.transform = `translate(${tx}px, ${ty}px) rotate(${Math.random() * 260 - 70}deg)`;
+          el.style.opacity = '0';
+        });
+        
+        setTimeout(() => {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 1200);
+      }
+    }
+
+    // Global cursor click magical effect (sparkle + ring). Skips game section.
+    function createClickEffect(x, y) {
+      const container = document.body;
+
+      // Expanding ring
+      const ring = document.createElement('div');
+      ring.className = 'click-ring';
+      ring.style.left = (x - 12) + 'px';
+      ring.style.top = (y - 12) + 'px';
+      ring.style.width = '24px';
+      ring.style.height = '24px';
+      container.appendChild(ring);
+      setTimeout(() => { if (ring.parentNode) ring.parentNode.removeChild(ring); }, 620);
+
+      // Particles burst
+      const particleCount = 9;
+      for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        const size = 3 + Math.random() * 3.5;
+        p.className = 'click-particle' + (Math.random() > 0.7 ? ' gold' : '');
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+
+        const angle = (i / particleCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.6;
+        const dist = 22 + Math.random() * 18;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist;
+        p.style.setProperty('--tx', tx + 'px');
+        p.style.setProperty('--ty', ty + 'px');
+
+        container.appendChild(p);
+
+        setTimeout(() => {
+          if (p.parentNode) p.parentNode.removeChild(p);
+        }, 720);
+      }
+    }
+
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobile-nav');
+      nav.classList.toggle('hidden');
+    }
+
+    // Simple scroll spy for nav links
+    function initScrollSpy() {
+      const links = document.querySelectorAll('nav a[href^="#"]');
+      const sections = [...document.querySelectorAll('section[id]')];
+      
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(sec => {
+          const top = sec.getBoundingClientRect().top;
+          if (top <= 160) current = sec.getAttribute('id');
+        });
+        
+        links.forEach(link => {
+          link.classList.remove('text-lime-400');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('text-lime-400');
+          }
+        });
+      });
+    }
+
+    // Keyboard shortcuts and extras
+    function initKeyboard() {
+      document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === '?' && document.activeElement.tagName === 'BODY') {
+          e.preventDefault();
+          document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }
+        if ((e.metaKey || e.ctrlKey) && e.key === "/") {
+          e.preventDefault();
+          copyCA();
+        }
+      });
+      
+      // Click logo to top
+      const logo = document.querySelector('nav img');
+      if (logo) {
+        logo.style.cursor = 'pointer';
+        logo.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Add extra feather floating animation on some images
+    function enhanceImages() {
+      const coins = document.querySelectorAll('img[src*="coin.png"], img[src*="logo.jpg"]');
+      coins.forEach(img => {
+        img.classList.add('pepe-glow');
+      });
+    }
+
+    // Boot everything
+    function init() {
+      initTailwind();
+      createHeroParticles();
+      renderGallery(12); // All 12 legendary moments in perfect 3:2
+      initScrollSpy();
+      initKeyboard();
+      enhanceImages();
+      
+      // Easter egg: click hero title fires particles
+      const title = document.querySelector('h1');
+      if (title) {
+        title.addEventListener('click', (e) => {
+          for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+              createConfettiBurst(e.clientX + (i - 1) * 60, e.clientY + 20);
+            }, i * 80);
+          }
+        });
+        title.style.cursor = 'pointer';
+      }
+      
+      // Random floating feathers in gallery area occasionally
+      setInterval(() => {
+        if (document.visibilityState === 'visible' && Math.random() > 0.7) {
+          const g = document.getElementById('gallery');
+          if (g) {
+            const f = document.createElement('div');
+            f.innerHTML = '🪶';
+            f.style.position = 'absolute';
+            f.style.fontSize = '13px';
+            f.style.opacity = '0.4';
+            f.style.left = (40 + Math.random() * 55) + '%';
+            f.style.top = '-10px';
+            f.style.transition = 'transform 3.8s linear, opacity 3.8s';
+            g.style.position = 'relative';
+            g.appendChild(f);
+            
+            setTimeout(() => {
+              f.style.transform = `translateY(${280 + Math.random()*160}px)`;
+              f.style.opacity = '0';
+            }, 50);
+            
+            setTimeout(() => f.remove(), 4100);
+          }
+        }
+      }, 6200);
+      
+      // Preload gallery images for buttery modal
+      galleryImages.forEach(it => {
+        const i = new Image();
+        i.src = it.src;
+      });
+      
+      // Welcome console
+      console.log('%c[PEPEHOOD] Magical meme site initialized. Hood up.', 'color:#4ade80; font-size:9px');
+
+      // === INIT NEW FEATURES ===
+      initMemeForge();
+
+      // Global cursor click effect — skip inside the embedded full game (#stage)
+      document.addEventListener('click', function(e) {
+        const stage = document.getElementById('stage');
+        if (stage && stage.contains(e.target)) return;
+        createClickEffect(e.clientX, e.clientY);
+      }, { passive: true });
+    }
+
+    window.onload = init;
+
+    /* =========================================
+       MEME FORGE (Image Creation Tool)
+    ========================================= */
+    let memeState = {
+      baseSrc: 'assets/logo.jpg',
+      topText: 'HOOD UP',
+      bottomText: 'ARROWS FLY • WHALES DIE',
+      textColor: '#ffffff',
+      fontSize: 46
+    };
+
+    const memeBases = [
+      { src: 'assets/meme/1.jpg', label: 'Cool Archer' },
+      { src: 'assets/meme/2.jpg', label: 'Legendary Frog' },
+      { src: 'assets/meme/3.jpg', label: 'Classic Hood' },
+      { src: 'assets/meme/4.jpg', label: 'Most Wanted' }
+    ];
+
+    let memeCtx = null;
+    let memeCanvasEl = null;
+    let loadedBases = {};
+
+    function initMemeForge() {
+      memeCanvasEl = document.getElementById('meme-canvas');
+      if (!memeCanvasEl) return;
+      memeCtx = memeCanvasEl.getContext('2d');
+
+      // Build base buttons
+      const container = document.getElementById('meme-base-select');
+      if (container) {
+        container.innerHTML = '';
+        memeBases.forEach((base, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `base-btn px-3 py-1.5 text-xs rounded-xl border border-lime-900/50 bg-zinc-950 hover:border-lime-400 flex items-center gap-2 ${idx === 0 ? 'active' : ''}`;
+          btn.innerHTML = `<img src="${base.src}" class="w-6 h-6 rounded object-cover"> <span>${base.label}</span>`;
+          btn.onclick = () => {
+            memeState.baseSrc = base.src;
+            // Toggle active
+            document.querySelectorAll('#meme-base-select .base-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateMemeCanvas();
+          };
+          container.appendChild(btn);
+        });
+      }
+
+      // Inputs sync
+      const top = document.getElementById('meme-top');
+      const bot = document.getElementById('meme-bottom');
+      const size = document.getElementById('meme-size');
+
+      if (top) top.value = memeState.topText;
+      if (bot) bot.value = memeState.bottomText;
+      if (size) {
+        size.value = memeState.fontSize;
+        const sizeValEl = document.getElementById('font-size-val');
+        if (sizeValEl) sizeValEl.textContent = memeState.fontSize;
+
+        size.oninput = () => {
+          memeState.fontSize = parseInt(size.value);
+          if (sizeValEl) sizeValEl.textContent = memeState.fontSize;
+          updateMemeCanvas();
+        };
+      }
+
+      // Initial render
+      setTimeout(() => {
+        updateMemeCanvas();
+      }, 120);
+    }
+
+    function setMemeColor(color) {
+      memeState.textColor = color;
+      updateMemeCanvas();
+    }
+
+    function randomMemeText() {
+      const topLines = [
+        "HOOD UP", "PEPE IN THE HOOD", "WHALES FEAR ME",
+        "GIVE TO THE PEOPLE", "ROBIN HOOD ENERGY", "ARROWS LOADED",
+        "ROBINHOOD JUSTICE", "STEAL FROM RICH", "FROGS RISE"
+      ];
+      const botLines = [
+        "DEGEN TAKEOVER", "WHALES GET THE ARROW", "TO THE MOON",
+        "PEPEHOOD SEASON", "ONE FROG ARMY", "BUY OR REGRET",
+        "HODL THE HOOD", "GREEN IS THE NEW GOLD", "ARROWS FLY"
+      ];
+
+      memeState.topText = topLines[Math.floor(Math.random() * topLines.length)];
+      memeState.bottomText = botLines[Math.floor(Math.random() * botLines.length)];
+
+      const topInp = document.getElementById('meme-top');
+      const botInp = document.getElementById('meme-bottom');
+      if (topInp) topInp.value = memeState.topText;
+      if (botInp) botInp.value = memeState.bottomText;
+
+      updateMemeCanvas();
+    }
+
+    function updateMemeCanvas() {
+      if (!memeCtx || !memeCanvasEl) return;
+
+      const topInp = document.getElementById('meme-top');
+      const botInp = document.getElementById('meme-bottom');
+      const sizeInp = document.getElementById('meme-size');
+
+      if (topInp) memeState.topText = topInp.value || 'HOOD UP';
+      if (botInp) memeState.bottomText = botInp.value || '';
+      if (sizeInp) memeState.fontSize = parseInt(sizeInp.value);
+
+      const w = memeCanvasEl.width;
+      const h = memeCanvasEl.height;
+
+      // Clear
+      memeCtx.fillStyle = '#0a1209';
+      memeCtx.fillRect(0, 0, w, h);
+
+      // Draw base image
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = () => {
+        // Fit maintaining aspect but crop a bit for meme feel
+        const scale = Math.max(w / img.width, h / img.height);
+        const dw = img.width * scale;
+        const dh = img.height * scale;
+        const dx = (w - dw) / 2;
+        const dy = (h - dh) / 2;
+
+        memeCtx.drawImage(img, dx, dy, dw, dh);
+
+        // Dark gradient overlays for text area
+        memeCtx.fillStyle = 'rgba(0,0,0,0.55)';
+        memeCtx.fillRect(0, 0, w, 88);
+        memeCtx.fillRect(0, h - 95, w, 95);
+
+        // Text styling
+        const size = memeState.fontSize;
+        memeCtx.fillStyle = memeState.textColor;
+        memeCtx.strokeStyle = '#111';
+        memeCtx.lineWidth = 6;
+        memeCtx.font = `bold ${size}px Impact, "Arial Black", sans-serif`;
+        memeCtx.textAlign = 'center';
+
+        // Top text
+        memeCtx.strokeText(memeState.topText.toUpperCase(), w / 2, 64);
+        memeCtx.fillText(memeState.topText.toUpperCase(), w / 2, 64);
+
+        // Bottom text
+        memeCtx.strokeText(memeState.bottomText.toUpperCase(), w / 2, h - 38);
+        memeCtx.fillText(memeState.bottomText.toUpperCase(), w / 2, h - 38);
+
+        // Small brand
+        memeCtx.font = 'bold 13px monospace';
+        memeCtx.fillStyle = '#a3e635';
+        memeCtx.fillText('$PEPEHOOD', w / 2, h - 14);
+      };
+      img.src = memeState.baseSrc;
+    }
+
+    function downloadMeme() {
+      if (!memeCanvasEl) return;
+      const link = document.createElement('a');
+      link.download = 'pepe-in-hood-meme.png';
+      link.href = memeCanvasEl.toDataURL('image/png');
+      link.click();
+
+      // Fun magic effect
+      createConfettiBurst(window.innerWidth * 0.75, window.innerHeight * 0.5);
+    }
+
+    /* End of new features */
+  </script>
+
+  <!-- Cloned Robinhood Game (full source from https://robin-hood-game-cs.vercel.app/ - all assets local) -->
+  <script src="game/js/manifest.js"></script>
+  <script src="game/js/config.js"></script>
+  <script src="game/js/icons.js"></script>
+  <script src="game/js/sheets.js"></script>
+  <script src="game/js/sprites.js"></script>
+  <script src="game/js/audio.js"></script>
+  <script src="game/js/entities.js"></script>
+  <script src="game/js/leaderboard.js"></script>
+  <script src="game/js/wallet.js"></script>
+  <script src="game/js/onchain.js"></script>
+  <script src="game/js/claim.js"></script>
+  <script src="game/js/entry.js"></script>
+  <script src="game/js/characters.js"></script>
+  <script src="game/js/game.js"></script>
+
+  <!-- Embed helper: skip optional wallet gate so players can jump straight into the game -->
+  <script>
+    (function(){
+      function goToMenu(){
+        try {
+          var w = document.getElementById('screen-wallet');
+          var m = document.getElementById('screen-menu');
+          if (w) w.classList.add('hidden');
+          if (m) m.classList.remove('hidden');
+        } catch(e){}
+      }
+      // Run soon after game boot scripts
+      setTimeout(goToMenu, 420);
+      // Also on any late paint
+      window.addEventListener('load', function(){ setTimeout(goToMenu, 180); });
+
+      // === Scroll isolation for the game section ===
+      // Wheel events over the game are captured here so the main page does NOT scroll.
+      // The game area "owns" the gesture. Panels inside can still scroll internally (overflow:auto).
+      function setupGameScrollTrap() {
+        var wrapper = document.getElementById('game-wrapper');
+        var stage = document.getElementById('stage');
+        var canvas = document.getElementById('game-canvas');
+
+        // We want:
+        // - Wheel over the *canvas* (during play) → do not scroll the main website
+        // - Wheel inside a visible .panel (shop, how-to, leaderboard, menus) → allow that panel to scroll internally
+        function handleGameWheel(e) {
+          // If the event is over (or inside) one of the scrollable panels, let the panel consume the scroll
+          if (e.target && e.target.closest && e.target.closest('#game-wrapper .panel')) {
+            return; // allow internal panel scrolling
+          }
+          // Otherwise (mainly over the game canvas or empty stage areas) — trap it
+          e.preventDefault();
+        }
+
+        // Listen on stage + wrapper (bubbling from canvas will hit these)
+        if (stage) stage.addEventListener('wheel', handleGameWheel, { passive: false });
+        if (wrapper) wrapper.addEventListener('wheel', handleGameWheel, { passive: false });
+
+        // Also listen directly on the canvas for the common play case
+        if (canvas) {
+          canvas.addEventListener('wheel', handleGameWheel, { passive: false });
+          canvas.style.touchAction = 'none';
+        }
+      }
+
+      // Run after game scripts have created the DOM elements
+      setTimeout(setupGameScrollTrap, 650);
+      window.addEventListener('load', function(){ setTimeout(setupGameScrollTrap, 300); });
+    })();
+  </script>
+</body>
+</html>
